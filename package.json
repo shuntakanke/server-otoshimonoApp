@@ -1,0 +1,28 @@
+{
+  "name": "server-otoshimonoapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuntakanke/server-otoshimonoApp.git"
+  },
+  "author": "shunta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shuntakanke/server-otoshimonoApp/issues"
+  },
+  "homepage": "https://github.com/shuntakanke/server-otoshimonoApp#readme",
+  "dependencies": {
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.13",
+    "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0"
+  }
+}
