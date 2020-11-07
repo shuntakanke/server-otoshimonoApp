@@ -1,7 +1,11 @@
 const express = require('express');
+const connectDB = require('./services/db');
 const authRoutes = require('./routes/auth');
 const usersRoutes = require('./routes/users');
 const lostPropertyRoutes = require('./routes/lostProperty');
+
+
+connectDB();
 
 const app = express();
 
