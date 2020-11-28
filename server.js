@@ -33,6 +33,7 @@ app.use('/lost_property',lostPropertyRoutes);
 app.get('/current_user' ,(req,res) => {
   res.send(req.user);
 });
+
 // test script ⬇️ after /auth/logout ,redirect to this path
 app.get('/current' ,(req,res) => {
   res.send('yoooo');
