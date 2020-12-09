@@ -23,7 +23,7 @@ passport.use(new GoogleStarategy({
   clientID: keys.googleClientID,
   clientSecret: keys.googleClientSecret,
   callbackURL: '/auth/google/redirect',
-  proxy: true
+  proxy: true //heroku proxy fix->  https://www.udemy.com/course/node-with-react-fullstack-web-development/learn/lecture/7604946#notes
   }, 
   (accessToken, refreshToken, profile, done) => {
     User.findOne({googleId: profile.id})

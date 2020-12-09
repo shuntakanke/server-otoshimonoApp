@@ -15,6 +15,8 @@ connectDB();
 
 const app = express();
 
+app.use(express.json({ extended: false}));
+
 app.use(
   cookieSession({
     maxAge: 7 * 24 * 60 * 60 * 1000,
@@ -26,13 +28,24 @@ app.use(passport.session());
 
 
 app.use('/auth',authRoutes);
-app.use('/users',usersRoutes);
-app.use('/lost_property',lostPropertyRoutes);
+app.use('/api/users',usersRoutes);
+app.use('/api/lost_property',lostPropertyRoutes);
 
 // test script   ⬇️ whether every request have user or not
-app.get('/current_user' ,(req,res) => {
-  res.send(req.user);
+app.get('/api/current_user' ,(req,res) => {
+  res.json(req.user);
 });
+
+app.get('/api/shunta' ,(req,res) => {
+  console.log(req.user)
+  res.send(req.user)
+});
+
+
+
+app.get('/', (req, res) => {
+  res.send('home')
+})
 
 // test script ⬇️ after /auth/logout ,redirect to this path
 app.get('/current' ,(req,res) => {

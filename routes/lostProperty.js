@@ -1,13 +1,45 @@
 const router = require('express').Router();
+const requireLogin = require('../middlewares/requireLogin');
+const LostProperty = require('../models/LostProperty');
+const User = require('../models/User');
 
 
-router.get('/',(req, res) => {
-  res.send('This is <get> /lost_property  /  Route!');
+
+router.post('/', requireLogin, async(req, res) => {
+  try {
+
+    const newLostProperty = new LostProperty ({
+      user: req.user._id,
+      type: req.body.type,
+      location: {
+        type: "point",
+        coordinates: [req.body.lng, req.body.lat]
+      }
+    });
+
+    const lostProperty = await newLostProperty.save();
+
+    res.send(lostProperty);
+
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('server error');
+  }
+  
 });
 
-router.post('/',(req, res) => {
-  res.send('This is <post> /lost_property  /  Route!');
+router.get('/', async(req, res) => {
+  try {
+    const lostProperty = await LostProperty.find().populate('user',['username','imageUrl']);
+    res.send(lostProperty);
+
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send('server error');
+    
+  }
 });
+
 
 router.get('/:id',(req, res) => {
   res.send('This is <get> /lost_property  /:id  Route!');
@@ -23,8 +55,14 @@ router.delete('/:id',(req, res) => {
 });
 
 
-router.get('/users/:id',(req, res) => {
-  res.send('This is <get> /lost_property  /users/:id  Route!');
+router.get('/users/:id', requireLogin, async(req, res) => {
+  try {
+    const lostProperty = await LostProperty.find({user: req.params.id});
+    res.send(lostProperty);
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send('server error');
+  }
 });
 
 

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-const Schame = mongoose.Schema;
+const Schema = mongoose.Schema;
 // const { Schame } = mongoose; <=distracturing なう　な書き方
 
 
-const UserScheme = new Schame({
+const UserSchema = new Schema({
   googleId: { 
     type: String,
     required: true
@@ -17,4 +17,4 @@ const UserScheme = new Schame({
   }
 });
 
-module.exports = User = mongoose.model('user', UserScheme);
+module.exports = User = mongoose.model('user', UserSchema);
