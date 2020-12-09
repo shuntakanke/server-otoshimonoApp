@@ -31,7 +31,7 @@ router.post('/', requireLogin, async(req, res) => {
 router.get('/', async(req, res) => {
   try {
     const lostProperty = await LostProperty.find().populate('user',['username','imageUrl']);
-    res.send(lostProperty);
+    res.json(lostProperty);
 
   } catch (err) {
     console.log(err.message);
@@ -58,7 +58,7 @@ router.delete('/:id',(req, res) => {
 router.get('/users/:id', requireLogin, async(req, res) => {
   try {
     const lostProperty = await LostProperty.find({user: req.params.id});
-    res.send(lostProperty);
+    res.json(lostProperty);
   } catch (err) {
     console.log(err.message);
     res.status(500).send('server error');
