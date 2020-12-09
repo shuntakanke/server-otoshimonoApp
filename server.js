@@ -36,20 +36,9 @@ app.get('/api/current_user' ,(req,res) => {
   res.json(req.user);
 });
 
-app.get('/api/shunta' ,(req,res) => {
-  console.log(req.user)
-  res.send(req.user)
-});
-
-
-
-app.get('/', (req, res) => {
-  res.send('home')
-})
-
 // test script ⬇️ after /auth/logout ,redirect to this path
-app.get('/current' ,(req,res) => {
-  res.send('yoooo');
+app.get('/yooo' ,(req,res) => {
+  res.send('yoooooo');
 });
 
 
