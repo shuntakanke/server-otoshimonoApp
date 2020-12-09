@@ -18,7 +18,7 @@ const Home = ({
       <div className="container">
         <h1>おとしもの</h1>
         <a className="home" href="auth/google">
-          <img className="google_icon" width="20px" src="./img/google_icon.png" /> login</a>
+          <img className="google_icon" width="20px" src="./img/google_icon.png" alt="googleIcon" /> login</a>
       </div>
     </div>
   )

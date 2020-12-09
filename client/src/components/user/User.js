@@ -21,7 +21,7 @@ const User = ({ fetchUser,
       <h1>ようこそ {user.name}さん<img width="50px" src={user.image} alt=""/></h1>
         <Link className="show-lostProperty" to={`/users/${user.id}/lost_property`}>登録した落とし物を見る</Link>
       </div>
-      <div> <Link to="/"><img src={homeIcon} /></Link></div> 
+      <div> <Link to="/"><img src={homeIcon} alt="homeIcon"/></Link></div> 
     </div> 
   )
 }
