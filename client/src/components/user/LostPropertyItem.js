@@ -10,7 +10,7 @@ const LostPropertyItem = ({
 }) => {
   return (
     <div className="lostProperty-container">
-      <Link className="list-lostProperty" to="/lost_property/eeeefef">
+      <Link className="list-lostProperty" to={`/lost_property/${_id}`}>
         {!type ? (
           <img width="45px" className="lostProperty-type" src={bag} alt="" />
         ):(

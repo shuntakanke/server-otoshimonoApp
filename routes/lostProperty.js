@@ -41,8 +41,15 @@ router.get('/', async(req, res) => {
 });
 
 
-router.get('/:id',(req, res) => {
-  res.send('This is <get> /lost_property  /:id  Route!');
+router.get('/:id',  requireLogin, async(req, res) => {
+  try {
+    const lostProperty = await LostProperty.findById(req.params.id);
+    res.json(lostProperty);
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send('server error');
+    
+  }
 });
 
 router.put('/:id',(req, res) => {

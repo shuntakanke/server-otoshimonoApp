@@ -11,7 +11,7 @@ import store from './store';
 import Home from './components/home/Home';
 import User from './components/user/User';
 import UserLostPropertyList from './components/user/UserLostPropertyList';
-import LostProperty from './components/lost_property/LostProperty';
+import LostProperty from './components/user/LostPropertyPage';
 
 import './App.css';
 
