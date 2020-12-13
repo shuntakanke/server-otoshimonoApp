@@ -23,13 +23,16 @@ const LostPropertyPage = ({
       <div className="container">
         <h1>登録したおとしもの</h1>
 
-        {!loading && (
+        {loading || lostProperty ===null ? (
+          <Fragment>'yoo'</Fragment>
+        ) : (
         <Fragment>
-          <h2>{lostProperty.type} </h2>
-          <h2>{lostProperty.location.coordinates[0]}  {lostProperty.location.coordinates[1]}</h2>
-          <h2>{lostProperty.date} </h2>
-        </Fragment>)}
-        
+            <h2>{lostProperty.type} </h2>
+            <h2>{lostProperty.location.coordinates[0]}  {lostProperty.location.coordinates[1]}</h2>
+            <h2>{lostProperty.date} </h2>
+        </Fragment>
+        )}
+
         <img src={map} width="100%" alt="sanmple-map" />
         <div><Link to="/"><img src={homeIcon} alt="home" ></img></Link></div>
       </div>
