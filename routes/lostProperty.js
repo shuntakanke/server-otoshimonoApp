@@ -14,7 +14,8 @@ router.post('/', requireLogin, async(req, res) => {
       location: {
         type: "point",
         coordinates: [req.body.lng, req.body.lat]
-      }
+      },
+      address: req.body.address
     });
 
     const lostProperty = await newLostProperty.save();

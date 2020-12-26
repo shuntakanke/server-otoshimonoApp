@@ -7,6 +7,7 @@ import {
 const initialState = {
   lostProperties: [],
   lostProperty:null,
+  address:null,
   loading: true,
 }
 

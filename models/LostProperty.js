@@ -23,6 +23,10 @@ const LostPropertySchema = new Schema({
     required:true
   },
   location: GeoSchema,
+  address: {
+    type: String,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now
