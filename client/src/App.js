@@ -12,6 +12,7 @@ import Home from './components/home/Home';
 import User from './components/user/User';
 import UserLostPropertyList from './components/user/UserLostPropertyList';
 import LostProperty from './components/user/LostPropertyPage';
+import Register from './components/register/Register';
 
 import './App.css';
 
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/users/:id" component={User} />
           <Route exact path="/users/:id/lost_property" component={UserLostPropertyList} />
           <Route exact path="/lost_property/:id" component={LostProperty} />
+          <Route path="/register" component={Register} />
         </Fragment>
       </Router>
     </Provider>
