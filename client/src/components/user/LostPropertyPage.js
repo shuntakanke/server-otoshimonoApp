@@ -33,7 +33,7 @@ const LostPropertyPage = ({
         lat: lostProperty.location.coordinates[1], 
         lng: lostProperty.location.coordinates[0]}
       return ( <GoogleMap
-          defaultZoom={10}
+          defaultZoom={15}
           defaultCenter={center}
         >
           <Marker
