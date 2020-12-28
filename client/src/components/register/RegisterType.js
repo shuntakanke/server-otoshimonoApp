@@ -1,19 +1,36 @@
-import React from 'react';
-import { Link} from 'react-router-dom';
+import React,{useState} from 'react';
+import { Link, withRouter} from 'react-router-dom';
+import { connect} from 'react-redux';
+import { setType } from '../../actions/registerForm';
 
+// img⬇️
 import homeIcon from '../../img/home_circle_icon_137496.png';
 import bag from '../../img/suitcase.svg';
 import key from '../../img/key.svg';
 import credit from '../../img/credit-card.svg';
 
-const RegisterType = () => {
+const RegisterType = ({setType, history}) => {
+  const [radio, setRadio] = useState("shunta");
+
+  const onSubmit =  e => {
+    e.preventDefault();
+    setType(radio, history);
+  }
+
   return (<div className="screen">
   <div className="container">
-    <h1>何を拾われましたか？</h1>
+    <h1>何を拾われましたか？Radio:  {radio} </h1>
+  <form className="form" onSubmit={e => onSubmit(e)}>
     <div className="radio-tile-group">
-
+{/* 3つだけでテストしてるnow */}
       <div className="input-container">
-        <input id="walk" className="radio-button" type="radio" name="radio" />
+        <input id="walk" className="radio-button" type="radio" name="radio"
+        checked={radio ==="bag"}
+        value="bag"
+        // ⬇️のonChangeをinputのなかに何回も繰り返し書いてるのを、一回で住むようにrefacteringする(udemyMERN参考！)
+        onChange={(e) => {
+          setRadio(e.target.value);
+        }} />
         <div className="radio-tile">
           <div className="icon walk-icon">
             <img src={bag} alt="bag"/>
@@ -23,7 +40,12 @@ const RegisterType = () => {
       </div>
   
       <div className="input-container">
-        <input id="bike" className="radio-button" type="radio" name="radio" />
+        <input id="bike" className="radio-button" type="radio" name="radio"
+        checked={radio === "key"}
+        value="key"
+        onChange={(e) => {
+          setRadio(e.target.value);
+        }} />
         <div className="radio-tile">
           <div className="icon bike-icon">
             <img src={key} alt="key"/>
@@ -33,7 +55,12 @@ const RegisterType = () => {
       </div>
   
       <div className="input-container">
-        <input id="drive" className="radio-button" type="radio" name="radio" />
+        <input id="drive" className="radio-button" type="radio" name="radio"
+        checked={radio ==="credit"}
+        value="credit"
+        onChange={(e) => {
+          setRadio(e.target.value);
+        }} />
         <div className="radio-tile">
           <div className="icon car-icon">
             <img src={credit} alt="credit"/>
@@ -41,7 +68,7 @@ const RegisterType = () => {
           <label for="drive" className="radio-tile-label">credit</label>
         </div>
       </div>
-  
+{/*  */}
       <div className="input-container">
         <input id="fly" className="radio-button" type="radio" name="radio" />
         <div className="radio-tile">
@@ -127,6 +154,8 @@ const RegisterType = () => {
       </div>
 
     </div> 
+    <input type="submit" value="submit" />
+  </form>
     
 
   </div>
@@ -135,4 +164,4 @@ const RegisterType = () => {
   )
 }
 
-export default RegisterType
+export default connect(null,{setType})(withRouter(RegisterType));
