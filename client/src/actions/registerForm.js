@@ -1,5 +1,6 @@
 import { 
-  SET_TYPE
+  SET_TYPE,
+  SET_DATE
 } from './types';
 
 export const setType = (type, history) => async dispatch => {
@@ -13,3 +14,15 @@ export const setType = (type, history) => async dispatch => {
     console.log(error)
   }
 };
+
+export const setDate = (date, history) => async dispatch => {
+  try {
+    dispatch({ type: SET_DATE, payload: date }); 
+    console.log("fuckuuuuu");
+    // □- ⬇️page遷移をhistoryで実装する
+    history.push('/register/location');
+
+  } catch (error) {
+    console.log(error)
+  }
+}

@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { 
-  SET_TYPE
+  SET_TYPE,
+  SET_DATE
 } from '../actions/types';
 
 const initialState = {
@@ -20,6 +21,11 @@ export default function(state = initialState, action) {
         ...state,
         type: payload
     };
+    case SET_DATE:
+      return {
+        ...state,
+        date: payload
+      };
 
     default:
       return state;

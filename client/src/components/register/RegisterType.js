@@ -10,7 +10,7 @@ import key from '../../img/key.svg';
 import credit from '../../img/credit-card.svg';
 
 const RegisterType = ({setType, history}) => {
-  const [radio, setRadio] = useState("shunta");
+  const [radio, setRadio] = useState("bag");
 
   const onSubmit =  e => {
     e.preventDefault();
