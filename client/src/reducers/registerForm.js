@@ -1,7 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { 
   SET_TYPE,
-  SET_DATE
+  SET_DATE,
+  SET_LOCATION
 } from '../actions/types';
 
 const initialState = {
@@ -25,6 +26,13 @@ export default function(state = initialState, action) {
       return {
         ...state,
         date: payload
+      };
+    case SET_LOCATION:
+      return {
+        ...state,
+        lng: payload.location.lng,
+        lat: payload.location.lat,
+        address: payload.address
       };
 
     default:

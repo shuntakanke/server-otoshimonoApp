@@ -7,10 +7,12 @@ import homeIcon from '../../img/home_circle_icon_137496.png';
 import bag from '../../img/suitcase.svg';
 import key from '../../img/key.svg';
 import credit from '../../img/credit-card.svg';
+import pin from '../../img/map-pin.png';
 
 import RegisterType from './RegisterType';
 import RegisterDate from './RegisterDate';
 import RegisterLocation from './RegisterLocation';
+import SubmitForm from './SubmitForm';
 
 const Register = ({
   registerForm: {type,date,lng,lat,address}
@@ -31,7 +33,9 @@ const Register = ({
                   <li className="register-date-number">{date && (<Moment format='DD'>{date}</Moment>)}</li>
                 </Link>
                 <Link to={`${url}/location`}>
-                  <li></li>
+                  <li>
+                  {address && (<img width="45px" src={pin} alt="bag" />)}
+                  </li>
                 </Link>
               </ul>
             </div>
@@ -45,6 +49,9 @@ const Register = ({
               </Route>
               <Route path={`${path}/location`}>
                 <RegisterLocation />
+              </Route> 
+              <Route path={`${path}/submit`}>
+                <SubmitForm/>
               </Route> 
             </Switch>
           </Fragment>

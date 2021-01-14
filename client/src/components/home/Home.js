@@ -2,6 +2,8 @@ import React from 'react'
 import { Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import googleIcon from '../../img/google_icon.png';
+
 const Home = ({
   auth:{
     isAuthenticated,
@@ -18,7 +20,7 @@ const Home = ({
       <div className="container">
         <h1>おとしもの</h1>
         <a className="home" href="auth/google">
-          <img className="google_icon" width="20px" src="./img/google_icon.png" alt="googleIcon" /> login</a>
+          <img width="20px" src={googleIcon} alt="icon" /> login</a>
       </div>
     </div>
   )
