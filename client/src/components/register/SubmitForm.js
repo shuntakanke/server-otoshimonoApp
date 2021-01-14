@@ -4,7 +4,7 @@ import { connect} from 'react-redux';
 import { postForm } from '../../actions/registerForm';
 
 import homeIcon from '../../img/home_circle_icon_137496.png';
-
+// commitのためのメッサージ
 
 const SubmitForm = ({postForm,history,registerForm}) => {
   return (<div className="screen">
